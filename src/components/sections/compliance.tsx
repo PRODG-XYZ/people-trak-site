@@ -9,8 +9,8 @@ const complianceItems = [
   },
   {
     icon: CheckCircle,
-    title: "Consent before processing",
-    description: "No personal data is processed or scored without a recorded, timestamped consent — enforced at the data layer.",
+    title: "Consent before outreach",
+    description: "No candidate is contacted without recorded, timestamped consent. Scoring happens on publicly available data; outreach only begins after explicit permission.",
   },
   {
     icon: Trash2,

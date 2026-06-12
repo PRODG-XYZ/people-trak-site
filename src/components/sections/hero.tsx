@@ -24,19 +24,19 @@ export function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="font-body font-semibold text-[13px] uppercase tracking-[0.15em] text-purple-300">
-              The AI hiring platform
+              Proactive sourcing platform
             </span>
-            
+
             <h1 className="font-display font-semibold text-hero mt-5">
-              Hire faster.
+              The best candidate
               <br />
-              <span className="text-lime">Defend every decision.</span>
+              <span className="text-lime">isn't applying.</span>
             </h1>
-            
-            <p className="text-lg text-purple-200/80 mt-6 max-w-[48ch] leading-relaxed">
-              One platform for the entire hire — from the open role to the first day. 
-              AI moves the work along, your team makes every call, and the reasoning 
-              stays attached to it.
+
+            <p className="text-lg text-purple-200/80 mt-6 max-w-[50ch] leading-relaxed">
+              PeopleTrak finds, scores and ranks the people who aren't in your inbox —
+              then runs the whole hire from first contact to first day. Proactive sourcing,
+              done in a way you can stand behind.
             </p>
             
             <div className="flex flex-wrap gap-3 mt-8">
