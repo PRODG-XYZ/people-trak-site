@@ -38,17 +38,14 @@ export function Compliance() {
   return (
     <section className="py-24 bg-white border-y border-line" id="compliance">
       <div className="max-w-wrap mx-auto px-6 lg:px-12">
-        {/* Header */}
+        {/* Header - no eyebrow, slide in from right */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="max-w-[62ch]"
+          className="max-w-[62ch] ml-auto text-right"
         >
-          <span className="font-body font-semibold text-[13px] uppercase tracking-[0.15em] text-purple">
-            Compliance & trust
-          </span>
-          <h2 className="font-display font-semibold text-section mt-3.5">
+          <h2 className="font-display font-semibold text-section">
             Compliant by design, built for Africa.
           </h2>
           <p className="text-[18.5px] text-slate-custom mt-4">
@@ -56,24 +53,62 @@ export function Compliance() {
           </p>
         </motion.div>
 
-        {/* Compliance grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-11">
-          {complianceItems.map((item, i) => (
+        {/* Compliance grid - asymmetric 2+4 layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-11">
+          {/* First row - two large cards */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-page border border-line rounded-2xl p-6"
+          >
+            <div className="w-[42px] h-[42px] rounded-[11px] bg-purple-50 flex items-center justify-center mb-3.5">
+              <Shield className="w-5 h-5 text-purple" strokeWidth={2} />
+            </div>
+            <h3 className="font-display font-semibold text-[17.5px]">
+              {complianceItems[0].title}
+            </h3>
+            <p className="text-[14.5px] text-slate-custom mt-2 leading-snug">
+              {complianceItems[0].description}
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-page border border-line rounded-2xl p-6"
+          >
+            <div className="w-[42px] h-[42px] rounded-[11px] bg-purple-50 flex items-center justify-center mb-3.5">
+              <CheckCircle className="w-5 h-5 text-purple" strokeWidth={2} />
+            </div>
+            <h3 className="font-display font-semibold text-[17.5px]">
+              {complianceItems[1].title}
+            </h3>
+            <p className="text-[14.5px] text-slate-custom mt-2 leading-snug">
+              {complianceItems[1].description}
+            </p>
+          </motion.div>
+        </div>
+        
+        {/* Second row - four smaller cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+          {complianceItems.slice(2).map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="bg-page border border-line rounded-2xl p-6"
+              transition={{ delay: 0.15 + i * 0.05 }}
+              className="bg-page border border-line rounded-2xl p-5"
             >
-              <div className="w-[42px] h-[42px] rounded-[11px] bg-purple-50 flex items-center justify-center mb-3.5">
-                <item.icon className="w-5 h-5 text-purple" strokeWidth={2} />
+              <div className="w-9 h-9 rounded-[10px] bg-purple-50 flex items-center justify-center mb-3">
+                <item.icon className="w-4 h-4 text-purple" strokeWidth={2} />
               </div>
-              <h3 className="font-display font-semibold text-[17.5px]">
+              <h3 className="font-display font-semibold text-base">
                 {item.title}
               </h3>
-              <p className="text-[14.5px] text-slate-custom mt-2 leading-snug">
+              <p className="text-sm text-slate-custom mt-1.5 leading-snug">
                 {item.description}
               </p>
             </motion.div>

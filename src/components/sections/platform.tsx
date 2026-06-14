@@ -14,17 +14,14 @@ export function Platform() {
   return (
     <section className="py-24" id="platform">
       <div className="max-w-wrap mx-auto px-6 lg:px-12">
-        {/* Header */}
+        {/* Header - no eyebrow, tighter spacing */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="max-w-[62ch]"
         >
-          <span className="font-body font-semibold text-[13px] uppercase tracking-[0.15em] text-purple">
-            One platform
-          </span>
-          <h2 className="font-display font-semibold text-section mt-3.5">
+          <h2 className="font-display font-semibold text-section">
             From job requisition to signed offer.
           </h2>
           <p className="text-[18.5px] text-slate-custom mt-4">

@@ -50,29 +50,33 @@ export function HowItWorks() {
   return (
     <section className="py-24 bg-white border-y border-line" id="how">
       <div className="max-w-wrap mx-auto px-6 lg:px-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-[62ch]"
-        >
-          <span className="font-body font-semibold text-[13px] uppercase tracking-[0.15em] text-lime" style={{ color: "#7e9118" }}>
-            Inside the shortlist
-          </span>
-          <h2 className="font-display font-semibold text-section mt-3.5">
+        {/* Header - no eyebrow, staggered text reveal */}
+        <div className="max-w-[62ch]">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-display font-semibold text-section"
+          >
             Define, capture, rank, screen.
-          </h2>
-          <p className="text-[18.5px] text-slate-custom mt-4">
-            One structured workflow turns a role into a ranked, explainable shortlist — and a CV into a screening summary you can act on.
-          </p>
-        </motion.div>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-[18.5px] text-slate-custom mt-4"
+          >
+            One workflow. Four steps. From a blank requisition to a ranked shortlist you can stand behind.
+          </motion.p>
+        </div>
 
         {/* Steps */}
         <div className="space-y-0 mt-12">
           {/* Step 1: Define */}
           <StepVisual 
             step={steps[0]}
+            animType="fadeLeft"
             visual={
               <div className="bg-page border border-line rounded-[20px] p-6 shadow-card">
                 <div className="border border-line rounded-xl px-4 py-3 bg-page mb-3">
@@ -92,6 +96,7 @@ export function HowItWorks() {
           <StepVisual 
             step={steps[1]}
             flip
+            animType="fadeRight"
             visual={
               <div className="bg-page border border-line rounded-[20px] p-6 shadow-card">
                 {[
@@ -124,7 +129,8 @@ export function HowItWorks() {
           <StepVisual 
             step={steps[2]}
             id="ranking"
-            visual={
+            animType="scale"
+            visual={ 
               <div className="bg-page border border-line rounded-[20px] p-6 shadow-card flex items-center gap-6 justify-center flex-wrap">
                 <ScoreRing score={94} size="md" label="Match" />
                 <div>
@@ -142,7 +148,8 @@ export function HowItWorks() {
           <StepVisual 
             step={steps[3]}
             flip
-            visual={
+            animType="fadeUp"
+            visual={ 
               <div className="bg-page border border-line rounded-[20px] p-6 shadow-card">
                 <div className="flex flex-col gap-3">
                   <div className="self-end bg-purple text-white rounded-[14px] rounded-br-[5px] px-4 py-3 text-sm max-w-[80%]">
@@ -169,16 +176,27 @@ interface StepVisualProps {
   visual: React.ReactNode
   flip?: boolean
   id?: string
+  animType?: "fadeUp" | "fadeLeft" | "fadeRight" | "scale"
 }
 
-function StepVisual({ step, visual, flip, id }: StepVisualProps) {
+const animVariants = {
+  fadeUp: { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } },
+  fadeLeft: { initial: { opacity: 0, x: -40 }, animate: { opacity: 1, x: 0 } },
+  fadeRight: { initial: { opacity: 0, x: 40 }, animate: { opacity: 1, x: 0 } },
+  scale: { initial: { opacity: 0, scale: 0.9 }, animate: { opacity: 1, scale: 1 } },
+}
+
+function StepVisual({ step, visual, flip, id, animType = "fadeUp" }: StepVisualProps) {
+  const variant = animVariants[animType]
+  
   return (
     <motion.div
       id={id}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-14 items-center py-8 ${flip ? "" : ""}`}
+      initial={variant.initial}
+      whileInView={variant.animate}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-14 items-center py-8`}
     >
       <div className={flip ? "lg:order-2" : ""}>
         <div className="flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-wider text-purple">
