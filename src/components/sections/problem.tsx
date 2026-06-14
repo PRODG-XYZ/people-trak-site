@@ -4,18 +4,18 @@ import { AlignLeft, Search, Star } from "lucide-react"
 const problems = [
   {
     icon: AlignLeft,
-    title: "Briefed by gut",
-    description: "Every hiring manager describes \"good\" differently, so the same role gets judged against a moving target.",
+    title: "Everyone wants something different",
+    description: "Your hiring manager wants a team player. Engineering wants deep expertise. Finance wants someone cheap. The role brief changes depending on who you ask.",
   },
   {
     icon: Search,
-    title: "Sourced by hand",
-    description: "Hours of manual trawling, then a separate pile of inbound CVs in a dozen different formats.",
+    title: "You're still copy-pasting between tabs",
+    description: "LinkedIn in one window. A spreadsheet in another. Email threads. PDFs. It takes hours just to see who's in your pipeline.",
   },
   {
     icon: Star,
-    title: "Ranked by feel",
-    description: "A subjective call across the pile, with nothing on record to explain — or defend — the order.",
+    title: "Ranking by vibe check",
+    description: "When it's time to shortlist, you go with your gut — and hope no one asks why candidate A beat candidate B.",
   },
 ]
 

@@ -41,7 +41,7 @@ export function Explainable() {
               A reason behind every rank.
             </h2>
             <p className="text-[18.5px] text-purple-200/80 mt-4">
-              The weights are fixed and the breakdown is always shown, so a score holds up to scrutiny. AI recommends and explains; a person makes the call. And every decision is logged with its rationale — so a shortlist is something you can defend, not just trust.
+              Every candidate gets the same test, scored the same way. You can see exactly how they scored — useful when the CEO asks why you picked Amara over Mariam. AI recommends; you decide. We log every choice with who made it and why.
             </p>
             
             {/* Pills */}

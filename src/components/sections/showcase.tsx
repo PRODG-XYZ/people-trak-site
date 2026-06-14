@@ -22,7 +22,7 @@ export function Showcase() {
             The shortlist, where the work happens.
           </h2>
           <p className="text-[18.5px] text-slate-custom mt-4">
-            Everything resolves to one view: a candidate a hiring manager can act on — score, breakdown and screening, one tap away.
+            This is where hiring actually happens. One screen with everything you need: the score, how they got it, and what to ask them. No tab-switching. No guessing.
           </p>
         </motion.div>
 

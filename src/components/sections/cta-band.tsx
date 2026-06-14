@@ -10,11 +10,12 @@ export function CtaBand() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display font-semibold text-section text-white max-w-[18ch] mx-auto">
-            Turn your next role into a defensible shortlist.
+          <h2 className="font-display font-semibold text-section text-white max-w-[20ch] mx-auto">
+            Build a shortlist you can explain.
           </h2>
           <p className="text-[19px] text-purple-100 mt-4">
-            See PeopleTrak take a live role from requisition to a ranked, defensible shortlist.
+            See PeopleTrak take a live role from requisition to ranked candidates — 
+            ready when the CEO asks why you picked Amara over Mariam.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-8">
             <Button variant="lime" size="lg" asChild>

@@ -5,32 +5,32 @@ const complianceItems = [
   {
     icon: Shield,
     title: "NDPA & GDPR aligned",
-    description: "Built around the Nigeria Data Protection Act and GDPR, and designed to extend across African regimes.",
+    description: "We built around the Nigeria Data Protection Act and designed it to work across African data regimes.",
   },
   {
     icon: CheckCircle,
     title: "Consent before outreach",
-    description: "No candidate is contacted without recorded, timestamped consent. Scoring happens on publicly available data; outreach only begins after explicit permission.",
+    description: "We record consent before we ever reach out. You can see the timestamp. Scoring uses public data; contact only happens after explicit permission.",
   },
   {
     icon: Trash2,
     title: "Right to erasure",
-    description: "One authenticated request nullifies a candidate's personal data, with the action logged.",
+    description: "One authenticated request and we delete their personal data. We log who asked and when.",
   },
   {
     icon: Users,
     title: "DEI, anonymised",
-    description: "Demographic groups smaller than five show as <5 everywhere, and are never re-identified.",
+    description: "Demographic groups under five people show as <5 everywhere. We never try to re-identify them.",
   },
   {
     icon: UserCircle,
     title: "Human in the loop",
-    description: "No decision with legal or significant effect is taken by automation alone — a person reviews and confirms.",
+    description: "AI recommends. You decide. No offer goes out without a human hitting approve.",
   },
   {
     icon: List,
     title: "Audited end to end",
-    description: "Every consent, score and decision is logged with the acting user, rationale and time.",
+    description: "Every consent, score and decision gets logged with who did it, why, and when.",
   },
 ]
 

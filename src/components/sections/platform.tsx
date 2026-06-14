@@ -25,10 +25,11 @@ export function Platform() {
             One platform
           </span>
           <h2 className="font-display font-semibold text-section mt-3.5">
-            The whole hire, end to end.
+            From job requisition to signed offer.
           </h2>
           <p className="text-[18.5px] text-slate-custom mt-4">
-            PeopleTrak runs every stage from the moment a role is opened to a new hire's first goals — AI-assisted throughout, with a person in control at every gate.
+            One platform for the full workflow. AI drafts your shortlist. You approve it. 
+            Nothing moves forward without your say — from the day you open the role to your new hire's first week.
           </p>
         </motion.div>
 

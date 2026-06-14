@@ -34,9 +34,9 @@ export function Hero() {
             </h1>
 
             <p className="text-lg text-purple-200/80 mt-6 max-w-[50ch] leading-relaxed">
-              PeopleTrak finds, scores and ranks the people who aren't in your inbox —
-              then runs the whole hire from first contact to first day. Proactive sourcing,
-              done in a way you can stand behind.
+              PeopleTrak finds candidates who never applied. Scores them against your criteria. 
+              Shows you the work. You decide who to call. We handle the rest — from first 
+              message to signed offer.
             </p>
             
             <div className="flex flex-wrap gap-3 mt-8">
