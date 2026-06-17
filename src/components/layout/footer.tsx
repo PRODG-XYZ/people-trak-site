@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Logo } from "@/components/icons/logo"
 
 const footerLinks = {
@@ -28,12 +29,12 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 lg:gap-9">
           {/* Brand */}
           <div>
-            <a href="#top" className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-2.5">
               <Logo variant="purple" className="w-[34px] h-[34px] rounded-lg" />
               <span className="font-display font-semibold text-[22px]">
                 PeopleTrak
               </span>
-            </a>
+            </Link>
             <p className="text-[#A9A2D6] text-[14.5px] mt-4 max-w-[30ch]">
               Ranked. Explainable. Defensible. The AI hiring platform — from requisition to onboarding.
             </p>
@@ -91,7 +92,13 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-11 pt-5 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-[13px] text-[#8F88BC]">
           <span>© 2026 PeopleTrak. All rights reserved.</span>
-          <span>Privacy · Terms · DPA</span>
+          <div className="flex items-center gap-3">
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <span>·</span>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <span>·</span>
+            <span>DPA</span>
+          </div>
         </div>
       </div>
     </footer>

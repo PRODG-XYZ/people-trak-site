@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/icons/logo"
@@ -34,12 +35,12 @@ export function Navigation() {
       >
         <div className="max-w-wrap mx-auto px-6 lg:px-12 h-[70px] flex items-center justify-between gap-4">
           {/* Brand */}
-          <a href="#top" className="flex items-center gap-2.5">
+          <Link to="/" className="flex items-center gap-2.5">
             <Logo variant="white" className="w-9 h-9 rounded-lg shadow-lg" />
             <span className="font-display font-semibold text-[22px] text-ink tracking-tight">
               PeopleTrak
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8 mx-auto">
@@ -56,7 +57,7 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-2">
-            <a href="#" className="text-[15px] font-semibold text-ink px-3 py-2">
+            <a href="https://app.peopletrak.app" className="text-[15px] font-semibold text-ink px-3 py-2">
               Sign in
             </a>
             <Button asChild>
