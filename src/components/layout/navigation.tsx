@@ -56,7 +56,7 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-2">
-            <a href="#" className="text-[15px] font-semibold text-ink px-3 py-2">
+            <a href="https://app.peopletrak.app" className="text-[15px] font-semibold text-ink px-3 py-2">
               Sign in
             </a>
             <Button asChild>
