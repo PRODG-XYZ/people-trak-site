@@ -45,10 +45,17 @@ export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
             ))}
           </nav>
           
-          <Button 
-            variant="lime" 
+          <a
+            href="https://app.peopletrak.app"
+            onClick={onClose}
+            className="mt-6 block text-center text-[17px] font-semibold text-white/70 py-3 hover:text-white transition-colors"
+          >
+            Sign in
+          </a>
+          <Button
+            variant="lime"
             size="lg"
-            className="mt-6 w-full justify-center"
+            className="mt-2 w-full justify-center"
             onClick={onClose}
             asChild
           >

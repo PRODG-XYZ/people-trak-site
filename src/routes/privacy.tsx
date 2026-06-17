@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Section, Clause, Subsection, BulletList } from "@/components/legal/legal-doc"
 
 const tocItems = [
   { id: "p1", label: "1. Who We Are" },
@@ -45,7 +46,7 @@ export function PrivacyPage() {
       <section className="bg-page py-16">
         <div className="max-w-wrap mx-auto px-6 lg:px-12">
           <div className="flex gap-14 xl:gap-20">
-            {/* Sidebar TOC */}
+            {/* Sidebar TOC — top-[94px] = nav height (70px) + 24px buffer */}
             <aside className="hidden lg:block w-[210px] flex-shrink-0">
               <div className="sticky top-[94px]">
                 <p className="text-[11px] font-bold uppercase tracking-widest text-slate-custom mb-3">
@@ -236,14 +237,14 @@ export function PrivacyPage() {
                   {[
                     { label: '6.1 Right to be informed', text: 'You have the right to know how your data is being used. This Privacy Policy fulfils that obligation.' },
                     { label: '6.2 Right of access', text: 'You can request a copy of the personal data we hold about you. We will respond within 21 days (NDPA) / 30 days (GDPR).' },
-                    { label: '6.3 Right to erasure', text: 'You can withdraw your consent and request deletion of your data at any time via the Privacy Settings panel in the Candidate Portal, or by contacting the Organisation\'s HR team. We will act within 21 days (NDPA) / 30 days (GDPR).' },
+                    { label: '6.3 Right to erasure', text: "You can withdraw your consent and request deletion of your data at any time via the Privacy Settings panel in the Candidate Portal, or by contacting the Organisation's HR team. We will act within 21 days (NDPA) / 30 days (GDPR)." },
                     { label: '6.4 Right to rectification', text: 'You can request correction of any inaccurate data we hold about you.' },
                     { label: '6.5 Right to object to automated decisions', text: 'You can request that a human reviews any AI-generated assessment, score, or shortlisting decision. No hiring decision is made solely by automated means.' },
                     { label: '6.6 Right to withdraw consent', text: 'You can withdraw any consent at any time. Withdrawing DATA_PROCESSING consent will result in all other consents being revoked and your data being scheduled for deletion.' },
                     { label: '6.7 Right to lodge a complaint', text: 'You have the right to lodge a complaint with the National Information Technology Development Agency (NITDA) in Nigeria, or the relevant data protection supervisory authority in your jurisdiction.' },
                   ].map(({ label, text }) => (
                     <div key={label} className="flex gap-3 text-[15px] leading-relaxed">
-                      <span className="font-semibold text-ink shrink-0 min-w-[5ch]">{label}</span>
+                      <span className="font-semibold text-ink shrink-0">{label}</span>
                       <span className="text-text">— {text}</span>
                     </div>
                   ))}
@@ -350,21 +351,17 @@ export function PrivacyPage() {
                 <div className="bg-mist rounded-xl border border-line px-6 py-5 text-[15px] space-y-1">
                   <p className="font-semibold text-ink">Compliance Officer</p>
                   <p className="text-text">VGG (Venture Garden Group)</p>
-                  <p className="text-slate-custom">[Compliance Officer / DPO contact details to be inserted]</p>
-                  <p className="text-slate-custom">[Organisation Address to be inserted]</p>
-                  <p className="text-slate-custom">NITDA Registration: [To be inserted]</p>
+                  <div className="mt-3 pt-3 border-t border-line space-y-1.5">
+                    <ContactPending label="DPO / Contact details" />
+                    <ContactPending label="Organisation address" />
+                    <ContactPending label="NITDA Registration number" />
+                  </div>
                 </div>
               </Section>
 
-              {/* Footer nav */}
               <div className="mt-10 pt-8 border-t border-line flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <p className="text-[13px] text-slate-custom">
-                  Version 1.0 · Last revised June 2026
-                </p>
-                <Link
-                  to="/terms"
-                  className="text-[14px] text-purple font-medium hover:text-purple-700 transition-colors"
-                >
+                <p className="text-[13px] text-slate-custom">Version 1.0 · Last revised June 2026</p>
+                <Link to="/terms" className="text-[14px] text-purple font-medium hover:text-purple-700 transition-colors">
                   View Terms of Service →
                 </Link>
               </div>
@@ -376,60 +373,13 @@ export function PrivacyPage() {
   )
 }
 
-function Section({
-  id,
-  number,
-  title,
-  children,
-  last = false,
-}: {
-  id: string
-  number: string
-  title: string
-  children: React.ReactNode
-  last?: boolean
-}) {
+function ContactPending({ label }: { label: string }) {
   return (
-    <section
-      id={id}
-      className={`mb-10 pb-10 scroll-mt-24 ${last ? "" : "border-b border-line"}`}
-    >
-      <h2 className="font-display font-semibold text-ink text-[20px] mb-5 flex items-baseline gap-2.5">
-        <span className="text-purple text-[15px] font-bold tabular-nums">{number}.</span>
-        <span>{title}</span>
-      </h2>
-      <div className="space-y-3">{children}</div>
-    </section>
-  )
-}
-
-function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="mb-5">
-      <h3 className="text-[15px] font-semibold text-ink mb-3">{title}</h3>
-      {children}
-    </div>
-  )
-}
-
-function Clause({ n, children }: { n: string; children: React.ReactNode }) {
-  return (
-    <p className="text-[15px] text-text leading-relaxed">
-      <span className="text-slate-custom font-semibold mr-2">{n}</span>
-      {children}
+    <p className="text-[14px] text-slate-custom flex items-center gap-2">
+      <span className="inline-flex items-center px-2 py-0.5 rounded bg-line text-[11px] font-semibold uppercase tracking-wider text-slate-2">
+        Pending
+      </span>
+      {label}
     </p>
-  )
-}
-
-function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="mt-3 space-y-2 ml-4">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 text-[15px] text-text leading-relaxed">
-          <span className="text-purple mt-2 shrink-0 w-1 h-1 rounded-full bg-purple block" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
   )
 }

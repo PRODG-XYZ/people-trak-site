@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Section, Clause, AlphaList } from "@/components/legal/legal-doc"
 
 const tocItems = [
   { id: "s1", label: "1. Introduction and Acceptance" },
@@ -45,7 +46,7 @@ export function TermsPage() {
       <section className="bg-page py-16">
         <div className="max-w-wrap mx-auto px-6 lg:px-12">
           <div className="flex gap-14 xl:gap-20">
-            {/* Sidebar TOC */}
+            {/* Sidebar TOC — top-[94px] = nav height (70px) + 24px buffer */}
             <aside className="hidden lg:block w-[210px] flex-shrink-0">
               <div className="sticky top-[94px]">
                 <p className="text-[11px] font-bold uppercase tracking-widest text-slate-custom mb-3">
@@ -130,7 +131,7 @@ export function TermsPage() {
                     'attempt to reverse-engineer, decompile, or extract source code from the Platform;',
                     'use the Platform to engage in discriminatory recruitment practices prohibited by applicable law;',
                     'upload, transmit, or process unlawful, defamatory, or fraudulent content;',
-                    'attempt to circumvent the Platform\'s security, consent, or access controls.',
+                    "attempt to circumvent the Platform's security, consent, or access controls.",
                   ]} />
                 </Clause>
                 <Clause n="4.3">The Organisation is responsible for ensuring that its HR Administrators, Recruiters, and Hiring Managers use the Platform in compliance with applicable employment and data protection law.</Clause>
@@ -229,15 +230,9 @@ export function TermsPage() {
                 <Clause n="12.2">Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of Nigeria.</Clause>
               </Section>
 
-              {/* Footer nav */}
               <div className="mt-10 pt-8 border-t border-line flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <p className="text-[13px] text-slate-custom">
-                  Version 1.0 · Last revised June 2026
-                </p>
-                <Link
-                  to="/privacy"
-                  className="text-[14px] text-purple font-medium hover:text-purple-700 transition-colors"
-                >
+                <p className="text-[13px] text-slate-custom">Version 1.0 · Last revised June 2026</p>
+                <Link to="/privacy" className="text-[14px] text-purple font-medium hover:text-purple-700 transition-colors">
                   View Privacy Policy →
                 </Link>
               </div>
@@ -246,55 +241,5 @@ export function TermsPage() {
         </div>
       </section>
     </div>
-  )
-}
-
-function Section({
-  id,
-  number,
-  title,
-  children,
-  last = false,
-}: {
-  id: string
-  number: string
-  title: string
-  children: React.ReactNode
-  last?: boolean
-}) {
-  return (
-    <section
-      id={id}
-      className={`mb-10 pb-10 scroll-mt-24 ${last ? "" : "border-b border-line"}`}
-    >
-      <h2 className="font-display font-semibold text-ink text-[20px] mb-5 flex items-baseline gap-2.5">
-        <span className="text-purple text-[15px] font-bold tabular-nums">{number}.</span>
-        <span>{title}</span>
-      </h2>
-      <div className="space-y-3">{children}</div>
-    </section>
-  )
-}
-
-function Clause({ n, children }: { n: string; children: React.ReactNode }) {
-  return (
-    <p className="text-[15px] text-text leading-relaxed">
-      <span className="text-slate-custom font-semibold mr-2">{n}</span>
-      {children}
-    </p>
-  )
-}
-
-function AlphaList({ items }: { items: string[] }) {
-  const letters = "abcdefghijklmnopqrstuvwxyz"
-  return (
-    <ol className="mt-3 space-y-2 ml-4">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 text-[15px] text-text leading-relaxed">
-          <span className="text-slate-custom font-semibold shrink-0">({letters[i]})</span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ol>
   )
 }
